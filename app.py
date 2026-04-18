@@ -50,8 +50,8 @@ def analyze_audio():
                 filename
             )
         except Exception as e:
-            print("[NOTIFICATION ERROR]", e)
-            notification_response = None
+            print("[TELEGRAM ERROR]", e)
+            
 
     # LOG ALERT (always safe now)
     try:

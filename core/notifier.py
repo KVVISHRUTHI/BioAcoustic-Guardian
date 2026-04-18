@@ -1,29 +1,32 @@
-import os
 import requests
-from dotenv import load_dotenv
+import os
 
-load_dotenv()
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 def send_alert(alert_type, severity, location, coords, confidence, filename):
-    token = os.getenv("TELEGRAM_BOT_TOKEN")
-    chat_id = os.getenv("TELEGRAM_CHAT_ID")
+    try:
+        message = (
+            f"BIOACOUSTIC ALERT\n"
+            f"Type: {alert_type}\n"
+            f"Severity: {severity}\n"
+            f"Location: {location}\n"
+            f"Confidence: {int(confidence * 100)}%\n"
+            f"GPS: https://maps.google.com/?q={coords}"
+        )
 
-    maps_link = f"https://maps.google.com/?q={coords}"
+        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
-    message = (
-        f"BIOACOUSTIC ALERT\n"
-        f"Type: {alert_type}\n"
-        f"Severity: {severity}\n"
-        f"Location: {location}\n"
-        f"Confidence: {round(confidence * 100)}%\n"
-        f"GPS: {maps_link}"
-    )
+        response = requests.post(url, json={
+            "chat_id": CHAT_ID,
+            "text": message
+        })
 
-    url = f"https://api.telegram.org/bot{token}/sendMessage"
+        return response.json()
 
-    r = requests.post(url, json={
-        "chat_id": chat_id,
-        "text": message
-    })
-
-    return r.json()
+    except Exception as e:
+        print("[TELEGRAM ERROR]", e)
+        return {
+            "ok": False,
+            "error": str(e)
+        }
