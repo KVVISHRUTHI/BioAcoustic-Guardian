@@ -1,26 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { LandingPage } from "@/components/landing/LandingPage";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "BioAcoustic Guardian — AI Forest Surveillance" },
+      { name: "description", content: "Cinematic AI command center for real-time forest surveillance. Detect chainsaws, gunshots, poachers and biodiversity changes — before they're seen." },
+      { property: "og:title", content: "BioAcoustic Guardian" },
+      { property: "og:description", content: "AI-powered acoustic intelligence for forests, rangers and biodiversity." },
+    ],
+  }),
+  component: LandingPage,
 });
-
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
-}
