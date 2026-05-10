@@ -13,6 +13,9 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardBiodiversityRouteImport } from './routes/dashboard.biodiversity'
+import { Route as DashboardAudioRouteImport } from './routes/dashboard.audio'
+import { Route as DashboardAlertsRouteImport } from './routes/dashboard.alerts'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -34,16 +37,37 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   path: '/',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardBiodiversityRoute = DashboardBiodiversityRouteImport.update({
+  id: '/biodiversity',
+  path: '/biodiversity',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardAudioRoute = DashboardAudioRouteImport.update({
+  id: '/audio',
+  path: '/audio',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardAlertsRoute = DashboardAlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => DashboardRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
+  '/dashboard/alerts': typeof DashboardAlertsRoute
+  '/dashboard/audio': typeof DashboardAudioRoute
+  '/dashboard/biodiversity': typeof DashboardBiodiversityRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/dashboard/alerts': typeof DashboardAlertsRoute
+  '/dashboard/audio': typeof DashboardAudioRoute
+  '/dashboard/biodiversity': typeof DashboardBiodiversityRoute
   '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
@@ -51,14 +75,38 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
+  '/dashboard/alerts': typeof DashboardAlertsRoute
+  '/dashboard/audio': typeof DashboardAudioRoute
+  '/dashboard/biodiversity': typeof DashboardBiodiversityRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/login' | '/dashboard/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/login'
+    | '/dashboard/alerts'
+    | '/dashboard/audio'
+    | '/dashboard/biodiversity'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/dashboard'
-  id: '__root__' | '/' | '/dashboard' | '/login' | '/dashboard/'
+  to:
+    | '/'
+    | '/login'
+    | '/dashboard/alerts'
+    | '/dashboard/audio'
+    | '/dashboard/biodiversity'
+    | '/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/login'
+    | '/dashboard/alerts'
+    | '/dashboard/audio'
+    | '/dashboard/biodiversity'
+    | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -97,14 +145,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/biodiversity': {
+      id: '/dashboard/biodiversity'
+      path: '/biodiversity'
+      fullPath: '/dashboard/biodiversity'
+      preLoaderRoute: typeof DashboardBiodiversityRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/audio': {
+      id: '/dashboard/audio'
+      path: '/audio'
+      fullPath: '/dashboard/audio'
+      preLoaderRoute: typeof DashboardAudioRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/alerts': {
+      id: '/dashboard/alerts'
+      path: '/alerts'
+      fullPath: '/dashboard/alerts'
+      preLoaderRoute: typeof DashboardAlertsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
 interface DashboardRouteChildren {
+  DashboardAlertsRoute: typeof DashboardAlertsRoute
+  DashboardAudioRoute: typeof DashboardAudioRoute
+  DashboardBiodiversityRoute: typeof DashboardBiodiversityRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardAlertsRoute: DashboardAlertsRoute,
+  DashboardAudioRoute: DashboardAudioRoute,
+  DashboardBiodiversityRoute: DashboardBiodiversityRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
 
