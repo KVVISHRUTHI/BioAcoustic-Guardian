@@ -13,6 +13,10 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardTelegramRouteImport } from './routes/dashboard.telegram'
+import { Route as DashboardSystemRouteImport } from './routes/dashboard.system'
+import { Route as DashboardReportsRouteImport } from './routes/dashboard.reports'
+import { Route as DashboardHelpRouteImport } from './routes/dashboard.help'
 import { Route as DashboardBiodiversityRouteImport } from './routes/dashboard.biodiversity'
 import { Route as DashboardAudioRouteImport } from './routes/dashboard.audio'
 import { Route as DashboardAlertsRouteImport } from './routes/dashboard.alerts'
@@ -35,6 +39,26 @@ const IndexRoute = IndexRouteImport.update({
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardTelegramRoute = DashboardTelegramRouteImport.update({
+  id: '/telegram',
+  path: '/telegram',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardSystemRoute = DashboardSystemRouteImport.update({
+  id: '/system',
+  path: '/system',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardReportsRoute = DashboardReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardHelpRoute = DashboardHelpRouteImport.update({
+  id: '/help',
+  path: '/help',
   getParentRoute: () => DashboardRoute,
 } as any)
 const DashboardBiodiversityRoute = DashboardBiodiversityRouteImport.update({
@@ -60,6 +84,10 @@ export interface FileRoutesByFullPath {
   '/dashboard/alerts': typeof DashboardAlertsRoute
   '/dashboard/audio': typeof DashboardAudioRoute
   '/dashboard/biodiversity': typeof DashboardBiodiversityRoute
+  '/dashboard/help': typeof DashboardHelpRoute
+  '/dashboard/reports': typeof DashboardReportsRoute
+  '/dashboard/system': typeof DashboardSystemRoute
+  '/dashboard/telegram': typeof DashboardTelegramRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
@@ -68,6 +96,10 @@ export interface FileRoutesByTo {
   '/dashboard/alerts': typeof DashboardAlertsRoute
   '/dashboard/audio': typeof DashboardAudioRoute
   '/dashboard/biodiversity': typeof DashboardBiodiversityRoute
+  '/dashboard/help': typeof DashboardHelpRoute
+  '/dashboard/reports': typeof DashboardReportsRoute
+  '/dashboard/system': typeof DashboardSystemRoute
+  '/dashboard/telegram': typeof DashboardTelegramRoute
   '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
@@ -78,6 +110,10 @@ export interface FileRoutesById {
   '/dashboard/alerts': typeof DashboardAlertsRoute
   '/dashboard/audio': typeof DashboardAudioRoute
   '/dashboard/biodiversity': typeof DashboardBiodiversityRoute
+  '/dashboard/help': typeof DashboardHelpRoute
+  '/dashboard/reports': typeof DashboardReportsRoute
+  '/dashboard/system': typeof DashboardSystemRoute
+  '/dashboard/telegram': typeof DashboardTelegramRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
@@ -89,6 +125,10 @@ export interface FileRouteTypes {
     | '/dashboard/alerts'
     | '/dashboard/audio'
     | '/dashboard/biodiversity'
+    | '/dashboard/help'
+    | '/dashboard/reports'
+    | '/dashboard/system'
+    | '/dashboard/telegram'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -97,6 +137,10 @@ export interface FileRouteTypes {
     | '/dashboard/alerts'
     | '/dashboard/audio'
     | '/dashboard/biodiversity'
+    | '/dashboard/help'
+    | '/dashboard/reports'
+    | '/dashboard/system'
+    | '/dashboard/telegram'
     | '/dashboard'
   id:
     | '__root__'
@@ -106,6 +150,10 @@ export interface FileRouteTypes {
     | '/dashboard/alerts'
     | '/dashboard/audio'
     | '/dashboard/biodiversity'
+    | '/dashboard/help'
+    | '/dashboard/reports'
+    | '/dashboard/system'
+    | '/dashboard/telegram'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
@@ -145,6 +193,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/telegram': {
+      id: '/dashboard/telegram'
+      path: '/telegram'
+      fullPath: '/dashboard/telegram'
+      preLoaderRoute: typeof DashboardTelegramRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/system': {
+      id: '/dashboard/system'
+      path: '/system'
+      fullPath: '/dashboard/system'
+      preLoaderRoute: typeof DashboardSystemRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/reports': {
+      id: '/dashboard/reports'
+      path: '/reports'
+      fullPath: '/dashboard/reports'
+      preLoaderRoute: typeof DashboardReportsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/help': {
+      id: '/dashboard/help'
+      path: '/help'
+      fullPath: '/dashboard/help'
+      preLoaderRoute: typeof DashboardHelpRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/biodiversity': {
       id: '/dashboard/biodiversity'
       path: '/biodiversity'
@@ -173,6 +249,10 @@ interface DashboardRouteChildren {
   DashboardAlertsRoute: typeof DashboardAlertsRoute
   DashboardAudioRoute: typeof DashboardAudioRoute
   DashboardBiodiversityRoute: typeof DashboardBiodiversityRoute
+  DashboardHelpRoute: typeof DashboardHelpRoute
+  DashboardReportsRoute: typeof DashboardReportsRoute
+  DashboardSystemRoute: typeof DashboardSystemRoute
+  DashboardTelegramRoute: typeof DashboardTelegramRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
@@ -180,6 +260,10 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardAlertsRoute: DashboardAlertsRoute,
   DashboardAudioRoute: DashboardAudioRoute,
   DashboardBiodiversityRoute: DashboardBiodiversityRoute,
+  DashboardHelpRoute: DashboardHelpRoute,
+  DashboardReportsRoute: DashboardReportsRoute,
+  DashboardSystemRoute: DashboardSystemRoute,
+  DashboardTelegramRoute: DashboardTelegramRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
 
