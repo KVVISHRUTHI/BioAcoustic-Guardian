@@ -1,17 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Upload, FileAudio, X, Loader2, CheckCircle2 } from "lucide-react";
 import { Waveform } from "@/components/dashboard/Waveform";
 import { ForestMap, type Detection } from "@/components/dashboard/ForestMap";
 
-export const Route = createFileRoute("/dashboard/audio")({
-  component: AudioAnalysisPage,
-});
-
 interface Result { time: string; event: string; confidence: number; severity: "critical" | "high" | "medium" | "low" }
 
-function AudioAnalysisPage() {
+export default function AudioAnalysisPage() {
   const [file, setFile] = useState<File | null>(null);
   const [phase, setPhase] = useState<"idle" | "uploading" | "analyzing" | "done">("idle");
   const [progress, setProgress] = useState(0);

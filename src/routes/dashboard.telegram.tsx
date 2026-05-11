@@ -1,15 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Send, CheckCircle2, AlertTriangle, Zap, Radio } from "lucide-react";
 
-export const Route = createFileRoute("/dashboard/telegram")({
-  component: TelegramPage,
-});
-
 interface Msg { id: string; text: string; status: "sending" | "delivered" | "ack"; time: string; }
 
-function TelegramPage() {
+export default function TelegramPage() {
   const [connected] = useState(true);
   const [msgs, setMsgs] = useState<Msg[]>([
     { id: "m1", text: "CRITICAL · Chainsaw detected · North Block A-04", status: "ack", time: "2m ago" },

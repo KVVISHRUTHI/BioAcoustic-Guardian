@@ -1,14 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { MOCK_BIODIVERSITY } from "@/lib/mock-data";
 import { Bird, Leaf, TreePine, Activity } from "lucide-react";
 import { StatCard } from "@/components/dashboard/StatCard";
 
-export const Route = createFileRoute("/dashboard/biodiversity")({
-  component: BiodiversityPage,
-});
-
-function BiodiversityPage() {
+export default function BiodiversityPage() {
   const d = MOCK_BIODIVERSITY;
   return (
     <div className="space-y-5">

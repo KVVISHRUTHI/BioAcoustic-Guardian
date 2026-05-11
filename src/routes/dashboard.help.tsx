@@ -1,11 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Search, BookOpen, Code, Video, FileText, MessageCircle, ChevronDown } from "lucide-react";
-
-export const Route = createFileRoute("/dashboard/help")({
-  component: HelpPage,
-});
 
 const FAQS = [
   { q: "How does Guardian classify acoustic signatures?", a: "Audio is streamed to YAMNet baseline + custom CNN heads for forest-specific events. Confidence > 80% triggers an alert." },
@@ -14,7 +9,7 @@ const FAQS = [
   { q: "Can I deploy on edge hardware?", a: "Yes. Ruggedized Raspberry Pi 5 / Coral TPU nodes with solar power. Edge inference + cloud backhaul." },
 ];
 
-function HelpPage() {
+export default function HelpPage() {
   return (
     <div className="space-y-5">
       <div className="glass-strong holo-border rounded-3xl p-6 relative overflow-hidden">

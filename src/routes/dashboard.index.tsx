@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { ForestMap } from "@/components/dashboard/ForestMap";
@@ -6,11 +5,7 @@ import { Waveform } from "@/components/dashboard/Waveform";
 import { MOCK_ALERTS } from "@/lib/mock-data";
 import { Bell, ShieldAlert, Bird, Activity, Cpu, Radar } from "lucide-react";
 
-export const Route = createFileRoute("/dashboard/")({
-  component: DashboardHome,
-});
-
-function DashboardHome() {
+export default function DashboardHome() {
   const detections = MOCK_ALERTS.map((a) => ({
     id: a.id,
     lat: a.lat,

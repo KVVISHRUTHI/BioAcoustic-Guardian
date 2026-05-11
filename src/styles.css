@@ -109,9 +109,6 @@
   ::selection { background: oklch(0.78 0.20 150 / 0.4); color: white; }
 }
 
-/* Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap");
-
 /* ========= Utilities ========= */
 .glass {
   background: linear-gradient(135deg, oklch(1 0 0 / 0.04), oklch(1 0 0 / 0.01));

@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation } from "@tanstack/react-router";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { Logo } from "@/components/brand/Logo";
 import { ParticleField } from "@/components/atmosphere/ParticleField";
 import { GridOverlay } from "@/components/atmosphere/GridOverlay";

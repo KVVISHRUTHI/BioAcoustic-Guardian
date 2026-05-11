@@ -1,13 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Download, BarChart3, TrendingUp, Clock } from "lucide-react";
 import { StatCard } from "@/components/dashboard/StatCard";
 
-export const Route = createFileRoute("/dashboard/reports")({
-  component: ReportsPage,
-});
-
-function ReportsPage() {
+export default function ReportsPage() {
   const bars = [42, 58, 71, 64, 88, 95, 76, 102, 88, 115, 124, 108];
   return (
     <div className="space-y-5">

@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Logo } from "@/components/brand/Logo";
 import { ParticleField } from "@/components/atmosphere/ParticleField";
 import { GridOverlay } from "@/components/atmosphere/GridOverlay";
 import { useState } from "react";
 import { Eye, EyeOff, Github, Mail, Shield, Lock, User as UserIcon } from "lucide-react";
 import forestBg from "@/assets/forest-bg.jpg";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "react-router-dom";
 
 export function AuthPage() {
   const [mode, setMode] = useState<"login" | "signup">("login");
@@ -126,7 +126,7 @@ export function AuthPage() {
 
           <form
             className="mt-6 space-y-4"
-            onSubmit={(e) => { e.preventDefault(); navigate({ to: "/" }); setTimeout(() => navigate({ to: "/dashboard" }), 50); }}
+            onSubmit={(e) => { e.preventDefault(); navigate("/"); setTimeout(() => navigate("/dashboard"), 50); }}
           >
             {mode === "signup" && (
               <Field icon={<UserIcon className="h-4 w-4" />} placeholder="Operator name" type="text" />

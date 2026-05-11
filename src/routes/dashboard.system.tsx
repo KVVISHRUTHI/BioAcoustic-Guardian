@@ -1,13 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Cpu, HardDrive, Network, Activity, Server, Radar } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export const Route = createFileRoute("/dashboard/system")({
-  component: SystemPage,
-});
-
-function SystemPage() {
+export default function SystemPage() {
   const [cpu, setCpu] = useState(24);
   const [mem, setMem] = useState(58);
   const [net, setNet] = useState(32);

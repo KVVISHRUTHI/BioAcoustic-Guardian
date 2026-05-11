@@ -1,14 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MOCK_ALERTS, type AlertItem } from "@/lib/mock-data";
 import { Search, CheckCircle2, XCircle, MapPin } from "lucide-react";
 
-export const Route = createFileRoute("/dashboard/alerts")({
-  component: AlertsPage,
-});
-
-function AlertsPage() {
+export default function AlertsPage() {
   const [alerts, setAlerts] = useState<AlertItem[]>(MOCK_ALERTS);
   const [q, setQ] = useState("");
   const [sev, setSev] = useState<string>("all");
