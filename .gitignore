@@ -7,7 +7,20 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Node
+node_modules/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+
+# Uploads / generated data
+audio_samples/uploads/
+data/*.json
 
 # Editor directories and files
 .vscode/*

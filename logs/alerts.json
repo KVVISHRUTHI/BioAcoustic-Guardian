@@ -1,0 +1,42 @@
+[
+  {
+    "timestamp": "2026-04-15T19:49:41.302136",
+    "decision": "THREAT",
+    "alert_type": "ILLEGAL_LOGGING",
+    "severity": "MEDIUM",
+    "location": "Forest Zone A",
+    "coords": "11.1271,78.6569",
+    "confidence": 0.489,
+    "file": "audio_samples/uploads\\chainsaw_test.wav",
+    "sms_sid": {
+      "ok": true,
+      "result": {
+        "message_id": 5,
+        "from": {
+          "id": 8752060419,
+          "is_bot": true,
+          "first_name": "BioAcoustic Guardian Alert",
+          "username": "bio_acoustic_alert_bot"
+        },
+        "chat": {
+          "id": 1441858037,
+          "first_name": "Lakshmi",
+          "type": "private"
+        },
+        "date": 1776282647,
+        "text": "BIOACOUSTIC ALERT\nType: ILLEGAL_LOGGING\nSeverity: MEDIUM\nLocation: Forest Zone A\nConfidence: 49%\nGPS: https://maps.google.com/?q=11.1271,78.6569",
+        "entities": [
+          {
+            "offset": 102,
+            "length": 42,
+            "type": "url"
+          }
+        ],
+        "link_preview_options": {
+          "url": "https://maps.google.com/?q=11.1271,78.6569"
+        }
+      }
+    },
+    "feedback": null
+  }
+]
